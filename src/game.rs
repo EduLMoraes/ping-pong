@@ -4,6 +4,7 @@ use crate::position_player;
 use crate::var;
 use k_board::{Keyboard, Keys::Up, Keys::Down};
 
+#[allow(dead_code)]
 pub fn play(mut player1: Player, mut player2: Player, ball: Ball, score: Scoreboard, mut board: Vec<Vec<char>>) -> bool{
     let lines = var("LINES")
         .expect("Erro ao coletar 'LINES'")
@@ -45,17 +46,22 @@ pub fn play(mut player1: Player, mut player2: Player, ball: Ball, score: Scorebo
         most_score(&score);
         most_board(&board);
 
-        board = vec![
-            vec![
-                ' '; 
-                columns
-            ];
-            lines as usize
-        ];
+        board = clean_board(columns, lines as usize);
 
         if score.home-3 == score.visit{
             break;
         }
     }
     true
+}
+
+#[allow(dead_code)]
+fn clean_board(columns: usize, lines: usize) -> Vec<Vec<char>>{
+    vec![
+        vec![
+            ' '; 
+            columns
+        ];
+        lines as usize
+    ]
 }
