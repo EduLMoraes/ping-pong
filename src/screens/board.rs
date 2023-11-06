@@ -2,11 +2,11 @@ use crate::structs::*;
 use crate::var;
 
 pub fn most_score(score: Scoreboard){
-    if cfg!(target_os = "windows"){
-        std::process::Command::new("cls").status().unwrap();
-    } else{
-        std::process::Command::new("clear").status().unwrap();
-    }
+    // if cfg!(target_os = "windows"){
+    //     std::process::Command::new("cls").status().unwrap();
+    // } else{
+    //     std::process::Command::new("clear").status().unwrap();
+    // }
     
     println!(".______________.");
     println!("|     {} X {}    |", score.home, score.visit);

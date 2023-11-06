@@ -22,7 +22,7 @@ fn main() {
             let mut scoreboard: Scoreboard = Scoreboard::new();
             let mut ball: Ball = Ball::new(lines, columns);
 
-            machine.x = 6;
+            machine.x = columns-2;
 
             let is_player_win: bool = play(player, machine, ball, scoreboard, board);
             if is_player_win {

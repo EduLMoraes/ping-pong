@@ -19,7 +19,7 @@ pub struct Player{
     pub x: i32,
     pub y: i32,
     pub speed: i8,
-    pub heigth: i32,
+    pub height: i32,
     pub width: i32,
 }
 impl Player{
@@ -28,7 +28,7 @@ impl Player{
             x: 0,
             y: 0,
             speed: 1,
-            heigth: var("LINES")
+            height: var("LINES")
             .expect("Erro ao coletar 'LINES'")
             .trim()
             .parse::<i32>()
