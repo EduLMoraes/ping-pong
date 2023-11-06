@@ -13,14 +13,16 @@ fn main() {
         let choice: String = menu();
 
         if choice == "A".to_string() || choice == "a".to_string(){
-            let lines: i32 = 20;
-            let columns: i32 = 40;
-            let board: Vec<Vec<i8>> = vec![vec![0; columns as usize]; lines as usize];
+            let lines: i32 = var("LINES").expect("Erro ao coletar 'LINES'").trim().parse::<i32>().expect("Erro ao converter 'COLUMNS' pra inteiro");
+            let columns: i32 = var("COLUMNS").expect("Erro ao coletar 'COLUMNS'").trim().parse::<i32>().expect("Erro ao converter 'COLUMNS' pra inteiro");
+            let mut board: Vec<Vec<char>> = vec![vec![' '; columns as usize]; lines as usize];
 
-            let player: Player = Player::new();
-            let machine: Player = Player::new();
-            let scoreboard: Scoreboard = Scoreboard::new();
-            let ball: Ball = Ball::new(lines, columns);
+            let mut player: Player = Player::new();
+            let mut machine: Player = Player::new();
+            let mut scoreboard: Scoreboard = Scoreboard::new();
+            let mut ball: Ball = Ball::new(lines, columns);
+
+            machine.x = 6;
 
             let is_player_win: bool = play(player, machine, ball, scoreboard, board);
             if is_player_win {

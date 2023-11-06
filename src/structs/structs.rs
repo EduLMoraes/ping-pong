@@ -1,31 +1,52 @@
+use crate::var;
+
 pub struct Ball{
-    x: i32,
-    y: i32,
-    speed: i32
+    pub x: i32,
+    pub y: i32,
+    pub speed: i32
 }
 impl Ball{
     pub fn new(lines: i32, columns: i32) -> Self{
-        Ball { x: lines/2, y: columns/2, speed: 1}
+        Ball { 
+            x: lines/2, 
+            y: columns/2, 
+            speed: 1
+        }
     }
 }
 
 pub struct Player{
-    x: i32,
-    y: i32,
-    speed: i8,
+    pub x: i32,
+    pub y: i32,
+    pub speed: i8,
+    pub heigth: i32,
+    pub width: i32,
 }
 impl Player{
     pub fn new() -> Self{
-        Player { x: 0, y: 0, speed: 1 }
+        Player { 
+            x: 0,
+            y: 0,
+            speed: 1,
+            heigth: var("LINES")
+            .expect("Erro ao coletar 'LINES'")
+            .trim()
+            .parse::<i32>()
+            .expect("Erro ao converter para inteiro")/3,
+            width: 2
+        }
     }
 }
 
 pub struct Scoreboard{
-    home: i8,
-    visit: i8
+    pub home: i8,
+    pub visit: i8
 }
 impl Scoreboard {
     pub fn new() -> Self{
-        Scoreboard {home: 0, visit: 0}
+        Scoreboard {
+            home: 0, 
+            visit: 0
+        }
     }
 }
