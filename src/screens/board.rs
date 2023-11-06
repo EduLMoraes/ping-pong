@@ -53,7 +53,7 @@ pub fn most_board(board: &Vec<Vec<char>>){
                     .parse::<i32>()
                     .expect("Erro ao converter para inteiro")
     {
-        print!("_");
+        print!("=");
     }
     print!("|\n");
 
