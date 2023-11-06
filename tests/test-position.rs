@@ -165,3 +165,75 @@ use prelude::*;
         ]);
     }
     
+
+    // Given a player with width and height of 1, the function should update the board with a '|' character at the player's position
+#[test]
+fn test_player_with_width_and_height_of_1() {
+    let player = Player {
+        speed: 1,
+        x: 0,
+        y: 0,
+        width: 1,
+        height: 1,
+    };
+    let board = vec![vec![' '; 3]; 3];
+    let expected_board = vec![vec!['|', ' ', ' '], vec![' ', ' ', ' '], vec![' ', ' ', ' ']];
+    
+    let result = position_player(player, board);
+    
+    assert_eq!(result, expected_board);
+}
+
+    // Given a player with width and height greater than 1, the function should update the board with a rectangle of '|' characters representing the player's position
+#[test]
+fn test_player_with_width_and_height_greater_than_1() {
+    let player = Player {
+        speed: 1,
+        x: 0,
+        y: 0,
+        width: 2,
+        height: 2,
+    };
+    let board = vec![vec![' '; 3]; 3];
+    let expected_board = vec![vec!['|', '|', ' '], vec!['|', '|', ' '], vec![' ', ' ', ' ']];
+    
+    let result = position_player(player, board);
+    
+    assert_eq!(result, expected_board);
+}
+
+    // Given a player with width and height greater than the board's dimensions, the function should update the board with a rectangle of '|' characters representing the player's position, without going out of bounds
+#[test]
+fn test_player_with_width_and_height_greater_than_board_dimensions() {
+    let player = Player {
+        speed: 1,
+        x: 0,
+        y: 0,
+        width: 4,
+        height: 4,
+    };
+    let board = vec![vec![' '; 3]; 3];
+    let expected_board = vec![vec!['|', '|', '|'], vec!['|', '|', '|'], vec!['|', '|', '|']];
+    
+    let result = position_player(player, board);
+    
+    assert_eq!(result, expected_board);
+}
+
+    // Given a player with negative coordinates, the function should update the board with a rectangle of '|' characters representing the player's position, without going out of bounds
+#[test]
+fn test_player_with_negative_coordinates() {
+    let player = Player {
+        speed: 1,
+        x: -1,
+        y: -1,
+        width: 2,
+        height: 2,
+    };
+    let board = vec![vec![' '; 3]; 3];
+    let expected_board = vec![vec!['|', '|', ' '], vec!['|', '|', ' '], vec![' ', ' ', ' ']];
+    
+    let result = position_player(player, board);
+    
+    assert_eq!(result, expected_board);
+}
