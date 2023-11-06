@@ -1,7 +1,7 @@
 use crate::structs::*;
 use crate::var;
 
-pub fn most_score(score: Scoreboard){
+pub fn most_score(score: &Scoreboard){
     // if cfg!(target_os = "windows"){
     //     std::process::Command::new("cls").status().unwrap();
     // } else{
@@ -12,7 +12,7 @@ pub fn most_score(score: Scoreboard){
     println!("|     {} X {}    |", score.home, score.visit);
 }
 
-pub fn most_board(board: Vec<Vec<char>>){
+pub fn most_board(board: &Vec<Vec<char>>){
 
 
     print!(".");

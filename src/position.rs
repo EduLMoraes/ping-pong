@@ -1,24 +1,26 @@
 use crate::structs::Player;
 
-pub fn position_player(mut player: Player, mut board: Vec<Vec<char>>) -> Vec<Vec<char>>{
-    let columns: i32 = board[0].len() as i32;
-    let lines: i32 = board.len() as i32;
+pub fn position_player(mut player: Player, mut board: Vec<Vec<char>>) -> (Player, Vec<Vec<char>>){
+    if board.len() <= 0 {
+        return (player, board);
+    }
 
-    if player.x < 0 {
-        player.x = 0;
-    }
-    if player.y < 0{
-        player.y = 0;
-    }
+    let columns = board[0].len() as i32;
+    let lines = board.len() as i32;
+
+    player.x = player.x.max(0);
+    player.y = player.y.max(0);
 
     if player.width == 1 && player.height == 1 {
         board[player.y as usize][player.x as usize] = '|';
     }
-
     else{
+        let tmp_x = player.x;
+        let tmp_y = player.y;
+
         for _i in 0..player.width{
     
-            if player.x >= columns {
+            if player.x >= columns || player.x >= player.width{
                 player.x -= 1;
             }
 
@@ -54,7 +56,9 @@ pub fn position_player(mut player: Player, mut board: Vec<Vec<char>>) -> Vec<Vec
             }
         
         }
+        player.y = tmp_y;
+        player.x = tmp_x;
     }
 
-    board
+    (player, board)
 }
