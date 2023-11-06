@@ -18,7 +18,7 @@ impl Ball{
 pub struct Player{
     pub x: i32,
     pub y: i32,
-    pub speed: i8,
+    pub speed: i32,
     pub height: i32,
     pub width: i32,
 }

@@ -3,5 +3,14 @@
 version = 3
 
 [[package]]
+name = "k_board"
+version = "1.1.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a3ce2f0617fcd2a6f370a3bcd26750abf38778e4e396c6fea97beb40cd750fa2"
+
+[[package]]
 name = "pong"
 version = "0.1.0"
+dependencies = [
+ "k_board",
+]

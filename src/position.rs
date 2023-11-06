@@ -27,12 +27,8 @@ pub fn position_player(mut player: Player, mut board: Vec<Vec<char>>) -> (Player
             let y_init = player.y;
     
             for y in 0..lines{
-    
-    
                 if y == player.y{
                     if y < player.height{
-                        
-
                         board[player.y as usize][player.x as usize] = '|';
                         player.y += 1;
                     } 
