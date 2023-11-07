@@ -37,11 +37,6 @@ pub fn play(mut player1: Player, mut player2: Player, mut ball: Ball, mut score:
                     player1.height -= player1.speed;
                 }
             },
-            _ => {}
-        }
-
-        let mut key = Keyboard::new();
-        match key.read_key() {
             Letter('s') => {
                 if player2.height < lines{
                     player2.y += player2.speed;
@@ -54,7 +49,7 @@ pub fn play(mut player1: Player, mut player2: Player, mut ball: Ball, mut score:
                     player2.height -= player2.speed;
                 }
             },
-            _ => {} 
+            _ => {}
         }
 
         (ball, board) = move_ball(ball, board);
