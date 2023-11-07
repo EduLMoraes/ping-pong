@@ -1,4 +1,4 @@
-use crate::structs::Player;
+use crate::structs::{Player, Ball};
 
 pub fn position_player(mut player: Player, mut board: Vec<Vec<char>>) -> (Player, Vec<Vec<char>>){
     if board.len() <= 0 {
@@ -57,4 +57,9 @@ pub fn position_player(mut player: Player, mut board: Vec<Vec<char>>) -> (Player
     }
 
     (player, board)
+}
+
+pub fn move_ball(mut ball: Ball, mut board: Vec<Vec<char>>) -> (Ball, Vec<Vec<char>>){
+    
+    (ball, board)
 }

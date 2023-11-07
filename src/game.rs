@@ -40,6 +40,7 @@ pub fn play(mut player1: Player, mut player2: Player, ball: Ball, score: Scorebo
             }
         }
 
+        
         (player1, board) = position_player(player1, board);
         (player2, board) = position_player(player2, board);
 

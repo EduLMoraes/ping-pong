@@ -3,13 +3,15 @@ use crate::var;
 pub struct Ball{
     pub x: i32,
     pub y: i32,
+    ray: i32,
     pub speed: i32
 }
 impl Ball{
     pub fn new(lines: i32, columns: i32) -> Self{
         Ball { 
             x: lines/2, 
-            y: columns/2, 
+            y: columns/2,
+            ray: 3, 
             speed: 1
         }
     }
