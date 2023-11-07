@@ -16,7 +16,7 @@ pub fn most_board(board: &Vec<Vec<char>>){
 
 
     print!(".");
-    for i in 0..var("COLUMNS")
+    for _i in 0..var("COLUMNS")
                     .expect("Erro ao coletar 'COLUMNS'")
                     .trim()
                     .parse::<i32>()
@@ -47,7 +47,7 @@ pub fn most_board(board: &Vec<Vec<char>>){
     }
 
     print!("|");
-    for i in 0..var("COLUMNS")
+    for _i in 0..var("COLUMNS")
                     .expect("Erro ao coletar 'COLUMNS'")
                     .trim()
                     .parse::<i32>()
@@ -57,4 +57,14 @@ pub fn most_board(board: &Vec<Vec<char>>){
     }
     print!("|\n");
 
+}
+
+pub fn clean_board(columns: usize, lines: usize) -> Vec<Vec<char>>{
+    vec![
+        vec![
+            ' '; 
+            columns
+        ];
+        lines as usize
+    ]
 }

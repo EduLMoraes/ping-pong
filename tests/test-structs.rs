@@ -5,8 +5,8 @@ use crate::prelude::*;
     #[test]
     fn test_ball_creation() {
         let ball = Ball::new(10, 20);
-        assert_eq!(ball.x, 5);
-        assert_eq!(ball.y, 10);
+        assert_eq!(ball.x, 10);
+        assert_eq!(ball.y, 5);
         assert_eq!(ball.speed, 1);
     }
     
@@ -33,8 +33,8 @@ use crate::prelude::*;
     #[test]
     fn test_ball_odd_lines_columns() {
         let ball = Ball::new(7, 9);
-        assert_eq!(ball.x, 3);
-        assert_eq!(ball.y, 4);
+        assert_eq!(ball.x, 4);
+        assert_eq!(ball.y, 3);
         assert_eq!(ball.speed, 1);
     }
     

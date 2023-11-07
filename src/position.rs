@@ -18,7 +18,7 @@ pub fn position_player(mut player: Player, mut board: Vec<Vec<char>>) -> (Player
         let tmp_x = player.x;
         let tmp_y = player.y;
 
-        for _i in 0..player.width{
+        for _i in 1..=player.width{
     
             if player.x >= columns || player.x >= player.width{
                 player.x -= 1;
@@ -60,6 +60,14 @@ pub fn position_player(mut player: Player, mut board: Vec<Vec<char>>) -> (Player
 }
 
 pub fn move_ball(mut ball: Ball, mut board: Vec<Vec<char>>) -> (Ball, Vec<Vec<char>>){
-    
+    if board.len() <= 0 {
+        return (ball, board);
+    }
+
+    ball.x = ball.x.max(0);
+    ball.y = ball.y.max(0);
+
+    board[ball.y as usize][ball.x as usize] = '@';
+
     (ball, board)
 }
