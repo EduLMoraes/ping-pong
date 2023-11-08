@@ -18,4 +18,4 @@ pub use game::*;
 mod position;
 pub use position::*;
 
-pub use std::env::var;
+// pub use std::env::var;

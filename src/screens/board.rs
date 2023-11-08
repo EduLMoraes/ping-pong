@@ -1,5 +1,5 @@
 use crate::structs::*;
-use crate::var;
+// use crate::var;
 
 pub fn most_score(score: &Scoreboard){
     if cfg!(target_os = "windows"){
@@ -16,29 +16,17 @@ pub fn most_board(board: &Vec<Vec<char>>){
 
 
     print!(".");
-    for _i in 0..var("COLUMNS")
-                    .expect("Erro ao coletar 'COLUMNS'")
-                    .trim()
-                    .parse::<i32>()
-                    .expect("Erro ao converter para inteiro")
+    for _i in 0..board[0].len()
     {
         print!("_");
     }
     print!(".\n");
 
-    for i in 0..var("LINES")
-                    .expect("Erro ao coletar 'LINES'")
-                    .trim()
-                    .parse::<i32>()
-                    .expect("Erro ao converter para inteiro")
+    for i in 0..board.len()
     {
         print!("|");
 
-        for j in 0..var("COLUMNS")
-                        .expect("Erro ao coletar 'COLUMNS'")
-                        .trim()
-                        .parse::<i32>()
-                        .expect("Erro ao converter para inteiro")
+        for j in 0..board[0].len()
         {
             print!("{}", board[i as usize][j as usize]);
         }
@@ -47,11 +35,7 @@ pub fn most_board(board: &Vec<Vec<char>>){
     }
 
     print!("|");
-    for _i in 0..var("COLUMNS")
-                    .expect("Erro ao coletar 'COLUMNS'")
-                    .trim()
-                    .parse::<i32>()
-                    .expect("Erro ao converter para inteiro")
+    for _i in 0..board[0].len()
     {
         print!("=");
     }

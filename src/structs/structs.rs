@@ -1,4 +1,4 @@
-use crate::var;
+// use crate::var;
 
 pub struct Ball{
     pub x: i32,
@@ -37,17 +37,18 @@ impl Player{
             x: 0,
             y: 0,
             speed: 1,
-            height: if var("LINES")
-            .expect("Erro ao coletar 'LINES'")
-            .trim()
-            .parse::<i32>()
-            .expect("Erro ao converter para inteiro")%3 == 0{
-                var("LINES")
-                .expect("Erro ao coletar 'LINES'")
-                .trim()
-                .parse::<i32>()
-                .expect("Erro ao converter para inteiro") / 3
-            } else { 5 },
+            height: 5,
+            // height: if var("LINES")
+            // .expect("Erro ao coletar 'LINES'")
+            // .trim()
+            // .parse::<i32>()
+            // .expect("Erro ao converter para inteiro")%3 == 0{
+            //     var("LINES")
+            //     .expect("Erro ao coletar 'LINES'")
+            //     .trim()
+            //     .parse::<i32>()
+            //     .expect("Erro ao converter para inteiro") / 3
+            // } else { 5 },
             width: 2
         }
     }
