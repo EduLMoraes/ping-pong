@@ -4,4 +4,4 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-k_board = "1.1.6"
+k_board = { version = "1.2.1", features = ["lower_letter"] }
