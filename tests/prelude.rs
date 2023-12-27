@@ -1,3 +1,3 @@
-#[path="../src/prelude.rs"]
+#[path = "../src/prelude.rs"]
 pub mod prelude;
 pub use prelude::*;

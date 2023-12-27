@@ -4,7 +4,6 @@ pub use menu::*;
 
 #[path = "./screens/board.rs"]
 pub mod board;
-pub use board::*;
 
 #[path = "./structs/structs.rs"]
 pub mod structs;
@@ -17,5 +16,3 @@ pub use game::*;
 #[path = "./position.rs"]
 mod position;
 pub use position::*;
-
-// pub use std::env::var;
