@@ -22,7 +22,7 @@ pub fn most_board(board: &[Vec<char>]) {
         print!("|");
 
         for j in 0..board[0].len() {
-            if j == board[0].len()/2{
+            if j == board[0].len() / 2 {
                 print!("|");
             }
             print!("{}", board[i][j]);

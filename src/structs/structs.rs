@@ -51,15 +51,14 @@ impl Player {
         }
     }
 
-    pub fn up(&mut self){
+    pub fn up(&mut self) {
         self.y -= self.speed;
         if self.y >= 0 {
             self.height -= self.speed;
         }
-
     }
 
-    pub fn down(&mut self){
+    pub fn down(&mut self) {
         self.y += self.speed;
         self.height += self.speed;
     }

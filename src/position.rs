@@ -1,6 +1,9 @@
 use crate::structs::*;
 
-pub fn position_player(mut player: std::sync::MutexGuard<'static, Player>, mut board: Vec<Vec<char>>) -> (std::sync::MutexGuard<'static, Player>, Vec<Vec<char>>) {
+pub fn position_player(
+    mut player: std::sync::MutexGuard<'static, Player>,
+    mut board: Vec<Vec<char>>,
+) -> (std::sync::MutexGuard<'static, Player>, Vec<Vec<char>>) {
     if board.is_empty() {
         return (player, board);
     }

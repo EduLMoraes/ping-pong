@@ -1,14 +1,10 @@
 use crate::board::*;
 use crate::structs::*;
 use crate::{move_ball, position_player};
-use k_board::{keyboard::Keyboard, keys::Keys::Down, keys::Keys::Up, keys::Keys::Char};
+use k_board::{keyboard::Keyboard, keys::Keys::Char, keys::Keys::Down, keys::Keys::Up};
 
 #[allow(dead_code)]
-pub fn play(
-    mut ball: Ball,
-    mut score: Scoreboard,
-    mut board: Vec<Vec<char>>,
-) -> bool {
+pub fn play(mut ball: Ball, mut score: Scoreboard, mut board: Vec<Vec<char>>) -> bool {
     /* let lines = var("LINES")
         .expect("Erro ao coletar 'LINES'")
         .trim()
@@ -26,8 +22,7 @@ pub fn play(
     let lines = board.len() as i32;
 
     let (tmp_ball_x, tmp_ball_y) = (ball.x, ball.y);
-    
-    
+
     println!("alo");
     let mut player1 = get_player1_instance();
     let mut player2 = get_player2_instance();
@@ -37,22 +32,34 @@ pub fn play(
     loop {
         let mut key = Keyboard::new();
 
-        if ball.x >= 35{
+        if ball.x >= 35 {
             match key.read_key() {
-                Char('w') => { player2.up() },
-                Char('s') => { if player2.height < lines { player2.down() } },
+                Char('w') => player2.up(),
+                Char('s') => {
+                    if player2.height < lines {
+                        player2.down()
+                    }
+                }
                 _ => {}
             }
-        }else{
+        } else {
             match key.read_key() {
-                Up => { player1.up() }, 
-                Down => { if player1.height < lines { player1.down() } },
-                Char('w') => { player2.up() },
-                Char('s') => { if player2.height < lines { player2.down() } },
+                Up => player1.up(),
+                Down => {
+                    if player1.height < lines {
+                        player1.down()
+                    }
+                }
+                Char('w') => player2.up(),
+                Char('s') => {
+                    if player2.height < lines {
+                        player2.down()
+                    }
+                }
                 _ => {}
             }
         }
-        
+
         (ball, board) = move_ball(ball, board);
         (player1, board) = position_player(player1, board);
         (player2, board) = position_player(player2, board);
