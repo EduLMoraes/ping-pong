@@ -5,3 +5,5 @@ edition = "2021"
 
 [dependencies]
 k_board = { version = "1.2.1", features = ["lower_letter"] }
+lazy_static = "1.4.0"
+tokio = { version = "1.35.1", features = ["full"] }

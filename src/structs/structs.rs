@@ -50,6 +50,37 @@ impl Player {
             width: 2,
         }
     }
+
+    pub fn up(&mut self){
+        self.y -= self.speed;
+        if self.y >= 0 {
+            self.height -= self.speed;
+        }
+
+    }
+
+    pub fn down(&mut self){
+        self.y += self.speed;
+        self.height += self.speed;
+    }
+}
+
+pub use lazy_static::lazy_static;
+pub use std::sync::Mutex;
+lazy_static! {
+    static ref PLAYER1: Mutex<Player> = Mutex::new(Player::new());
+}
+lazy_static! {
+    static ref PLAYER2: Mutex<Player> = Mutex::new(Player::new());
+}
+
+#[allow(dead_code)]
+pub fn get_player1_instance() -> std::sync::MutexGuard<'static, Player> {
+    PLAYER1.lock().unwrap()
+}
+#[allow(dead_code)]
+pub fn get_player2_instance() -> std::sync::MutexGuard<'static, Player> {
+    PLAYER2.lock().unwrap()
 }
 
 pub struct Scoreboard {

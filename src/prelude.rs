@@ -1,3 +1,5 @@
+pub use tokio;
+
 #[path = "./screens/menu.rs"]
 pub mod menu;
 pub use menu::*;

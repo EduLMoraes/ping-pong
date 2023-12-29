@@ -1,12 +1,10 @@
 use crate::board::*;
 use crate::structs::*;
 use crate::{move_ball, position_player};
-use k_board::{keyboard::Keyboard, keys::Keys};
+use k_board::{keyboard::Keyboard, keys::Keys::Down, keys::Keys::Up, keys::Keys::Char};
 
 #[allow(dead_code)]
 pub fn play(
-    mut player1: Player,
-    mut player2: Player,
     mut ball: Ball,
     mut score: Scoreboard,
     mut board: Vec<Vec<char>>,
@@ -23,42 +21,38 @@ pub fn play(
         .parse::<usize>()
         .expect("Erro ao converter 'COLUMNS' pra inteiro");*/
 
-    let columns = board[0].len() as i32;
+    let len = board[0].len() as i32;
+    let columns = len;
     let lines = board.len() as i32;
 
     let (tmp_ball_x, tmp_ball_y) = (ball.x, ball.y);
+    
+    
+    println!("alo");
+    let mut player1 = get_player1_instance();
+    let mut player2 = get_player2_instance();
+
+    player2.x = 69;
 
     loop {
         let mut key = Keyboard::new();
 
-        match key.read_key() {
-            Keys::Down => {
-                if player1.height < lines {
-                    player1.y += player1.speed;
-                    player1.height += player1.speed;
-                }
+        if ball.x >= 35{
+            match key.read_key() {
+                Char('w') => { player2.up() },
+                Char('s') => { if player2.height < lines { player2.down() } },
+                _ => {}
             }
-            Keys::Up => {
-                player1.y -= player1.speed;
-                if player1.y >= 0 {
-                    player1.height -= player1.speed;
-                }
+        }else{
+            match key.read_key() {
+                Up => { player1.up() }, 
+                Down => { if player1.height < lines { player1.down() } },
+                Char('w') => { player2.up() },
+                Char('s') => { if player2.height < lines { player2.down() } },
+                _ => {}
             }
-            Keys::Char('s') => {
-                if player2.height < lines {
-                    player2.y += player2.speed;
-                    player2.height += player2.speed;
-                }
-            }
-            Keys::Char('w') => {
-                player2.y -= player2.speed;
-                if player2.y >= 0 {
-                    player2.height -= player2.speed;
-                }
-            }
-            _ => {}
         }
-
+        
         (ball, board) = move_ball(ball, board);
         (player1, board) = position_player(player1, board);
         (player2, board) = position_player(player2, board);
